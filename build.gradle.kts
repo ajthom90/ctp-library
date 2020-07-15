@@ -31,6 +31,19 @@ kotlin {
             ::iosX64
 
     jvm()
+    js().browser {
+        webpackTask {
+
+        }
+    }
+
+    mingwX64 {
+//        binaries {
+//            framework {
+//                baseName = "CovidTrackingWin"
+//            }
+//        }
+    }
 
     iOSTarget("ios") {
         binaries {
@@ -85,6 +98,22 @@ kotlin {
                 dependencies {
                     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serializationVersion")
                 }
+            }
+        }
+
+        js().compilations["main"].defaultSourceSet {
+            dependsOn(commonMain)
+            dependencies {
+//                implementation(kotlin("js"))
+                implementation("com.soywiz.korlibs.klock:klock-js:$klockVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+            }
+        }
+
+        mingwX64().compilations["main"].defaultSourceSet {
+            dependsOn(commonMain)
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serializationVersion")
             }
         }
     }

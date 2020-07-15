@@ -1,5 +1,13 @@
 package dev.ajthom.covid
 
 fun main() {
-    println("unimplemented")
+    val fetcher = DailyDataFetcher()
+    val stateNames = StateNames()
+    fetcher.getDailyData { states ->
+        states.forEach { state ->
+            state.dailyData.forEach { daily ->
+                println("${stateNames.getName(state.state)}: ${daily.positive ?: 0}")
+            }
+        }
+    }
 }

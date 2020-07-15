@@ -7,8 +7,15 @@ import kotlinx.serialization.json.JsonConfiguration
 class DailyDataFetcher {
     fun getDailyData(callback: (List<StateData>) -> Unit) {
         loadFromUrl("https://covidtracking.com/api/v1/states/daily.json") { dataStr ->
-            val json = Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, useArrayPolymorphism = true, isLenient = true))
-            val parsed = json.parse(StateDailyData.serializer().list, dataStr).sortedByDescending { it.date }.groupBy { it.state }
+            val json = Json(
+                JsonConfiguration.Stable.copy(
+                    ignoreUnknownKeys = true,
+                    useArrayPolymorphism = true,
+                    isLenient = true
+                )
+            )
+            val parsed = json.parse(StateDailyData.serializer().list, dataStr).sortedByDescending { it.date }
+                .groupBy { it.state }
             val states = parsed.keys.map {
                 StateData(state = it, dailyData = emptyList())
             }
@@ -20,9 +27,6 @@ class DailyDataFetcher {
             }
             callback(statesWithDailies.doFreeze())
         }
-
-
-
     }
 }
 
