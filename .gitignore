@@ -37,6 +37,8 @@
 *.iml
 *.ipr
 
+native/DateFormatting.playground
+
 # CMake
 cmake-build-*/
 
