@@ -13,12 +13,17 @@ struct StateDataView: View {
     var stateNames: StateNames
     
     var body: some View {
-        List(state.dailyData, id: \.date) { daily in
-            NavigationLink(destination: StateDailyDataView(state: state, daily: daily)) {
-                HStack {
-                    Text("\(daily.formattedDate())")
-                    Spacer()
-                    Text("\(daily.positive ?? 0) (+\(daily.positiveIncrease))")
+        List {
+            NavigationLink(destination: StateChartsView(state: state)) {
+                Text("Charts")
+            }
+            ForEach(state.dailyData, id: \.date) { daily in
+                NavigationLink(destination: StateDailyDataView(state: state, daily: daily)) {
+                    HStack {
+                        Text("\(daily.formattedDate())")
+                        Spacer()
+                        Text("\(daily.positive ?? 0) (+\(daily.positiveIncrease))")
+                    }
                 }
             }
         }.navigationBarTitle(stateNames.getName(abbreviation: state.state))

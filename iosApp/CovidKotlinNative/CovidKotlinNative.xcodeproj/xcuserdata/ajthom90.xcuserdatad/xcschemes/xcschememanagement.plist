@@ -4,10 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CovidKotlinNative.xcscheme_^#shared#^_</key>
+		<key>COVID US.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>CovidKotlinNative.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4153613C24BE201200050748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4153614D24BE201300050748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4153615824BE201300050748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
