@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4153614124BE201200050748 /* CovidKotlinNativeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153614024BE201200050748 /* CovidKotlinNativeApp.swift */; };
+		4153614324BE201200050748 /* StateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153614224BE201200050748 /* StateListView.swift */; };
+		4153614524BE201300050748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4153614424BE201300050748 /* Assets.xcassets */; };
+		4153614824BE201300050748 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4153614724BE201300050748 /* Preview Assets.xcassets */; };
+		4153615324BE201300050748 /* CovidKotlinNativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153615224BE201300050748 /* CovidKotlinNativeTests.swift */; };
+		4153615E24BE201300050748 /* CovidKotlinNativeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153615D24BE201300050748 /* CovidKotlinNativeUITests.swift */; };
+		4153617B24BE315300050748 /* StateDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153617A24BE315300050748 /* StateDataView.swift */; };
+		4153617D24BE322600050748 /* StateDailyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153617C24BE322600050748 /* StateDailyDataView.swift */; };
+		4153617F24BE3E5A00050748 /* CovidTrackingShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */; };
+		4153618024BE3E5A00050748 /* CovidTrackingShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4153614F24BE201300050748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4153613524BE201200050748 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4153613C24BE201200050748;
+			remoteInfo = CovidKotlinNative;
+		};
+		4153615A24BE201300050748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4153613524BE201200050748 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4153613C24BE201200050748;
+			remoteInfo = CovidKotlinNative;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4153618124BE3E5A00050748 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4153618024BE3E5A00050748 /* CovidTrackingShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4153613D24BE201200050748 /* CovidKotlinNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidKotlinNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4153614024BE201200050748 /* CovidKotlinNativeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidKotlinNativeApp.swift; sourceTree = "<group>"; };
+		4153614224BE201200050748 /* StateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListView.swift; sourceTree = "<group>"; };
+		4153614424BE201300050748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4153614724BE201300050748 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4153614924BE201300050748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4153614E24BE201300050748 /* CovidKotlinNativeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidKotlinNativeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4153615224BE201300050748 /* CovidKotlinNativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidKotlinNativeTests.swift; sourceTree = "<group>"; };
+		4153615424BE201300050748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4153615924BE201300050748 /* CovidKotlinNativeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidKotlinNativeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4153615D24BE201300050748 /* CovidKotlinNativeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidKotlinNativeUITests.swift; sourceTree = "<group>"; };
+		4153615F24BE201300050748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4153616C24BE21BE00050748 /* xcode-frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xcode-frameworks"; path = "../../build/xcode-frameworks"; sourceTree = "<group>"; };
+		4153617A24BE315300050748 /* StateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDataView.swift; sourceTree = "<group>"; };
+		4153617C24BE322600050748 /* StateDailyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDailyDataView.swift; sourceTree = "<group>"; };
+		4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CovidTrackingShared.framework; path = "../../build/xcode-frameworks/CovidTrackingShared.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4153613A24BE201200050748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4153617F24BE3E5A00050748 /* CovidTrackingShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153614B24BE201300050748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153615624BE201300050748 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4153613424BE201200050748 = {
+			isa = PBXGroup;
+			children = (
+				4153613F24BE201200050748 /* CovidKotlinNative */,
+				4153615124BE201300050748 /* CovidKotlinNativeTests */,
+				4153615C24BE201300050748 /* CovidKotlinNativeUITests */,
+				4153613E24BE201200050748 /* Products */,
+				4153616B24BE21BE00050748 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4153613E24BE201200050748 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4153613D24BE201200050748 /* CovidKotlinNative.app */,
+				4153614E24BE201300050748 /* CovidKotlinNativeTests.xctest */,
+				4153615924BE201300050748 /* CovidKotlinNativeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4153613F24BE201200050748 /* CovidKotlinNative */ = {
+			isa = PBXGroup;
+			children = (
+				4153614024BE201200050748 /* CovidKotlinNativeApp.swift */,
+				4153614424BE201300050748 /* Assets.xcassets */,
+				4153614924BE201300050748 /* Info.plist */,
+				4153614624BE201300050748 /* Preview Content */,
+				4153614224BE201200050748 /* StateListView.swift */,
+				4153617A24BE315300050748 /* StateDataView.swift */,
+				4153617C24BE322600050748 /* StateDailyDataView.swift */,
+			);
+			path = CovidKotlinNative;
+			sourceTree = "<group>";
+		};
+		4153614624BE201300050748 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4153614724BE201300050748 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4153615124BE201300050748 /* CovidKotlinNativeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4153615224BE201300050748 /* CovidKotlinNativeTests.swift */,
+				4153615424BE201300050748 /* Info.plist */,
+			);
+			path = CovidKotlinNativeTests;
+			sourceTree = "<group>";
+		};
+		4153615C24BE201300050748 /* CovidKotlinNativeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4153615D24BE201300050748 /* CovidKotlinNativeUITests.swift */,
+				4153615F24BE201300050748 /* Info.plist */,
+			);
+			path = CovidKotlinNativeUITests;
+			sourceTree = "<group>";
+		};
+		4153616B24BE21BE00050748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */,
+				4153616C24BE21BE00050748 /* xcode-frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4153613C24BE201200050748 /* CovidKotlinNative */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4153616224BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNative" */;
+			buildPhases = (
+				4153617124BE227100050748 /* Run Script */,
+				4153613924BE201200050748 /* Sources */,
+				4153613A24BE201200050748 /* Frameworks */,
+				4153613B24BE201200050748 /* Resources */,
+				4153618124BE3E5A00050748 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CovidKotlinNative;
+			productName = CovidKotlinNative;
+			productReference = 4153613D24BE201200050748 /* CovidKotlinNative.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4153614D24BE201300050748 /* CovidKotlinNativeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4153616524BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNativeTests" */;
+			buildPhases = (
+				4153614A24BE201300050748 /* Sources */,
+				4153614B24BE201300050748 /* Frameworks */,
+				4153614C24BE201300050748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4153615024BE201300050748 /* PBXTargetDependency */,
+			);
+			name = CovidKotlinNativeTests;
+			productName = CovidKotlinNativeTests;
+			productReference = 4153614E24BE201300050748 /* CovidKotlinNativeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4153615824BE201300050748 /* CovidKotlinNativeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4153616824BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNativeUITests" */;
+			buildPhases = (
+				4153615524BE201300050748 /* Sources */,
+				4153615624BE201300050748 /* Frameworks */,
+				4153615724BE201300050748 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4153615B24BE201300050748 /* PBXTargetDependency */,
+			);
+			name = CovidKotlinNativeUITests;
+			productName = CovidKotlinNativeUITests;
+			productReference = 4153615924BE201300050748 /* CovidKotlinNativeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4153613524BE201200050748 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					4153613C24BE201200050748 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					4153614D24BE201300050748 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 4153613C24BE201200050748;
+					};
+					4153615824BE201300050748 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 4153613C24BE201200050748;
+					};
+				};
+			};
+			buildConfigurationList = 4153613824BE201200050748 /* Build configuration list for PBXProject "CovidKotlinNative" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4153613424BE201200050748;
+			productRefGroup = 4153613E24BE201200050748 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4153613C24BE201200050748 /* CovidKotlinNative */,
+				4153614D24BE201300050748 /* CovidKotlinNativeTests */,
+				4153615824BE201300050748 /* CovidKotlinNativeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4153613B24BE201200050748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4153614824BE201300050748 /* Preview Assets.xcassets in Resources */,
+				4153614524BE201300050748 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153614C24BE201300050748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153615724BE201300050748 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4153617124BE227100050748 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd \"$SRCROOT/../../build/xcode-frameworks\"\nrm -rf CovidTrackingShared.framework\nrm -rf CovidTrackingShared.framework.dSYM\n./gradlew build -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4153613924BE201200050748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4153617D24BE322600050748 /* StateDailyDataView.swift in Sources */,
+				4153614324BE201200050748 /* StateListView.swift in Sources */,
+				4153617B24BE315300050748 /* StateDataView.swift in Sources */,
+				4153614124BE201200050748 /* CovidKotlinNativeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153614A24BE201300050748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4153615324BE201300050748 /* CovidKotlinNativeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4153615524BE201300050748 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4153615E24BE201300050748 /* CovidKotlinNativeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4153615024BE201300050748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4153613C24BE201200050748 /* CovidKotlinNative */;
+			targetProxy = 4153614F24BE201300050748 /* PBXContainerItemProxy */;
+		};
+		4153615B24BE201300050748 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4153613C24BE201200050748 /* CovidKotlinNative */;
+			targetProxy = 4153615A24BE201300050748 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4153616024BE201300050748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4153616124BE201300050748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4153616324BE201300050748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CovidKotlinNative/Preview Content\"";
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../build/xcode-frameworks";
+				INFOPLIST_FILE = CovidKotlinNative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNative;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4153616424BE201300050748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CovidKotlinNative/Preview Content\"";
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../build/xcode-frameworks";
+				INFOPLIST_FILE = CovidKotlinNative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNative;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4153616624BE201300050748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				INFOPLIST_FILE = CovidKotlinNativeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNativeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CovidKotlinNative.app/CovidKotlinNative";
+			};
+			name = Debug;
+		};
+		4153616724BE201300050748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				INFOPLIST_FILE = CovidKotlinNativeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNativeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CovidKotlinNative.app/CovidKotlinNative";
+			};
+			name = Release;
+		};
+		4153616924BE201300050748 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				INFOPLIST_FILE = CovidKotlinNativeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CovidKotlinNative;
+			};
+			name = Debug;
+		};
+		4153616A24BE201300050748 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LL334G7KP2;
+				INFOPLIST_FILE = CovidKotlinNativeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ajthom.CovidKotlinNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CovidKotlinNative;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4153613824BE201200050748 /* Build configuration list for PBXProject "CovidKotlinNative" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4153616024BE201300050748 /* Debug */,
+				4153616124BE201300050748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4153616224BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNative" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4153616324BE201300050748 /* Debug */,
+				4153616424BE201300050748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4153616524BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNativeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4153616624BE201300050748 /* Debug */,
+				4153616724BE201300050748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4153616824BE201300050748 /* Build configuration list for PBXNativeTarget "CovidKotlinNativeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4153616924BE201300050748 /* Debug */,
+				4153616A24BE201300050748 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4153613524BE201200050748 /* Project object */;
+}
