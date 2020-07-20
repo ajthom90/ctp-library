@@ -17,6 +17,8 @@
 		4153617D24BE322600050748 /* StateDailyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153617C24BE322600050748 /* StateDailyDataView.swift */; };
 		4153617F24BE3E5A00050748 /* CovidTrackingShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */; };
 		4153618024BE3E5A00050748 /* CovidTrackingShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41F82A7224C61EF900B08469 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F82A7124C61EF900B08469 /* SearchBar.swift */; };
+		41F82A7324C61F0000B08469 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F82A7124C61EF900B08469 /* SearchBar.swift */; };
 		41FC770724C0C97700AD93A6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 41FC770624C0C97700AD93A6 /* SwiftUICharts */; };
 		41FC770924C0C99000AD93A6 /* StateCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC770824C0C99000AD93A6 /* StateCharts.swift */; };
 		41FC771124C0D48F00AD93A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC771024C0D48F00AD93A6 /* AppDelegate.swift */; };
@@ -109,6 +111,7 @@
 		4153617A24BE315300050748 /* StateDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDataView.swift; sourceTree = "<group>"; };
 		4153617C24BE322600050748 /* StateDailyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDailyDataView.swift; sourceTree = "<group>"; };
 		4153617E24BE3E5A00050748 /* CovidTrackingShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CovidTrackingShared.framework; path = "../../build/xcode-frameworks/CovidTrackingShared.framework"; sourceTree = "<group>"; };
+		41F82A7124C61EF900B08469 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		41FC770824C0C99000AD93A6 /* StateCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCharts.swift; sourceTree = "<group>"; };
 		41FC770E24C0D48F00AD93A6 /* COVID US.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID US.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FC771024C0D48F00AD93A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +217,7 @@
 				4153617A24BE315300050748 /* StateDataView.swift */,
 				4153617C24BE322600050748 /* StateDailyDataView.swift */,
 				41FC770824C0C99000AD93A6 /* StateCharts.swift */,
+				41F82A7124C61EF900B08469 /* SearchBar.swift */,
 			);
 			path = CovidKotlinNative;
 			sourceTree = "<group>";
@@ -569,6 +573,7 @@
 				4153614324BE201200050748 /* StateListView.swift in Sources */,
 				4153617B24BE315300050748 /* StateDataView.swift in Sources */,
 				4153614124BE201200050748 /* CovidKotlinNativeApp.swift in Sources */,
+				41F82A7224C61EF900B08469 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +602,7 @@
 				41FC771324C0D48F00AD93A6 /* SceneDelegate.swift in Sources */,
 				41FC774024C0D4DE00AD93A6 /* StateDailyDataView.swift in Sources */,
 				41FC774224C0D4DE00AD93A6 /* StateCharts.swift in Sources */,
+				41F82A7324C61F0000B08469 /* SearchBar.swift in Sources */,
 				41FC774124C0D4DE00AD93A6 /* StateListView.swift in Sources */,
 				41FC771524C0D48F00AD93A6 /* ContentView.swift in Sources */,
 			);

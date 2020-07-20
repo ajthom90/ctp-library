@@ -22,7 +22,7 @@ struct StateDataView: View {
                     HStack {
                         Text("\(daily.formattedDate())")
                         Spacer()
-                        Text("\(daily.positive ?? 0) (+\(daily.positiveIncrease))")
+                        Text("\(daily.positive ?? 0) (\(daily.positiveIncreaseString()))")
                     }
                 }
             }
@@ -34,5 +34,14 @@ struct StateDataView: View {
 struct StateDataView_Previews: PreviewProvider {
     static var previews: some View {
         StateDataView(state: StateData(state: "MN", dailyData: []), stateNames: StateNames())
+    }
+}
+
+extension StateDailyData {
+    func positiveIncreaseString() -> String {
+        if self.positiveIncrease >= 0 {
+            return "+\(positiveIncrease)"
+        }
+        return "\(positiveIncrease)"
     }
 }

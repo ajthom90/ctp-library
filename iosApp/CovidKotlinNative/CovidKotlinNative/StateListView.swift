@@ -14,26 +14,38 @@ struct StateListView: View {
     @State var dataLoaded = false
     var stateNames = StateNames()
     
+    @State var stateSearch: String = ""
+    
     var body: some View {
         NavigationView {
-            List {
-                if (!dataLoaded) {
-                    Text("Loading...")
-                }
-                else {
-                    ForEach(data, id: \.state) { state in
-                        NavigationLink(
-                            destination: StateDataView(state: state, stateNames: stateNames),
-                            label: {
-                                HStack {
-                                    Text(stateNames.getName(abbreviation: state.state))
-                                    Spacer()
-                                    Text("\(state.dailyData[0].positive ?? 0)")
-                                }
-                            })
+            VStack {
+                SearchBar(text: $stateSearch)
+                List {
+                    if (!dataLoaded) {
+                        Text("Loading...")
                     }
-                }
-            }.navigationBarTitle("States")
+                    else {
+                        ForEach(data.filter({ state in
+                            if stateSearch.isEmpty {
+                                return true
+                            }
+                            let name = stateNames.getName(abbreviation: state.state)
+                            return name.lowercased().contains(stateSearch.lowercased())
+                        }), id: \.state) { state in
+                            NavigationLink(
+                                destination: StateDataView(state: state, stateNames: stateNames),
+                                label: {
+                                    HStack {
+                                        Text(stateNames.getName(abbreviation: state.state))
+                                        Spacer()
+                                        Text("\(state.dailyData[0].positive ?? 0)")
+                                    }
+                                })
+                        }
+                    }
+                }.listStyle(PlainListStyle())
+            }
+            .navigationBarTitle("States")
         }.onAppear {
             fetcher.getDailyData { (data) in
                 DispatchQueue.main.async {

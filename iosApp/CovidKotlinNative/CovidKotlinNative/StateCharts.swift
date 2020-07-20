@@ -14,8 +14,10 @@ struct StateChartsView: View {
     
     var body: some View {
         ScrollView {
-            BarChartView(data: chartData(), title: "New Cases", form: ChartForm.extraLarge, valueSpecifier: "%.0f").padding(.bottom, 10)
-            BarChartView(data: deathsChartData(), title: "New Deaths", form: ChartForm.extraLarge, valueSpecifier: "%.0f")
+            VStack {
+                BarChartView(data: chartData(), title: "New Cases", form: ChartForm.extraLarge, dropShadow: false, valueSpecifier: "%.0f").padding(.bottom, 10)
+                BarChartView(data: deathsChartData(), title: "New Deaths", form: ChartForm.extraLarge, dropShadow: false, valueSpecifier: "%.0f")
+            }
         }.navigationBarTitle("Charts")
     }
     

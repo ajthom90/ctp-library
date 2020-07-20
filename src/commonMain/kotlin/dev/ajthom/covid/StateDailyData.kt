@@ -47,7 +47,9 @@ data class StateDailyData(
     val negativeScore: Int,
     val positiveScore: Int,
     val score: Int,
-    val grade: String
+    val grade: String,
+    var previousDay: StateDailyData? = null,
+    var nextDay: StateDailyData? = null
 ) {
     val dataDate: Date
         get() {

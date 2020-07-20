@@ -7,6 +7,7 @@ import kotlinx.serialization.json.JsonConfiguration
 class DailyDataFetcher {
     fun getDailyData(callback: (List<StateData>) -> Unit) {
         loadFromUrl("https://covidtracking.com/api/v1/states/daily.json") { dataStr ->
+            val stateInfo = StateNames()
             val json = Json(
                 JsonConfiguration.Stable.copy(
                     ignoreUnknownKeys = true,
@@ -21,9 +22,26 @@ class DailyDataFetcher {
             }
             val statesWithDailies = states.map {
                 val dailies = parsed[it.state] ?: emptyList()
-                dailies.doFreeze()
-                val copy = it.copy(dailyData = dailies)
+                dailies.withIndex().forEach { (index, data) ->
+                    val nextDay = if (index != 0) {
+                        dailies[index - 1]
+                    } else {
+                        null
+                    }
+                    val previousDay = if (index != dailies.size - 1) {
+                        dailies[index + 1]
+                    } else {
+                        null
+                    }
+                    data.apply {
+                        this.previousDay = previousDay
+                        this.nextDay = nextDay
+                    }
+                }
+                val copy = it.copy(dailyData = dailies.doFreeze())
                 copy.doFreeze()
+            }.sortedBy {
+                stateInfo.getName(it.state)
             }
             callback(statesWithDailies.doFreeze())
         }
