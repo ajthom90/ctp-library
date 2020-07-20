@@ -28,6 +28,14 @@ class DailyDataFetcher {
             callback(statesWithDailies.doFreeze())
         }
     }
+
+    fun getNationalDailyData(callback: (List<StateDailyData>) -> Unit) {
+        loadFromUrl("https://covidtracking.com/api/v1/us/daily.json") { dataStr ->
+            val json = Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, useArrayPolymorphism = true, isLenient = true))
+            val parsed = json.parse(StateDailyData.serializer().list, dataStr).sortedByDescending { it.date }
+            callback(parsed)
+        }
+    }
 }
 
 /**
