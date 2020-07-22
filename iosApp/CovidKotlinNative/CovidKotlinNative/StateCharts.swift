@@ -17,7 +17,8 @@ struct StateChartsView: View {
             VStack {
                 BarChartView(data: chartData(), title: "New Cases", form: ChartForm.extraLarge, dropShadow: false, valueSpecifier: "%.0f").padding(.bottom, 10)
                 BarChartView(data: deathsChartData(), title: "New Deaths", form: ChartForm.extraLarge, dropShadow: false, valueSpecifier: "%.0f")
-            }
+            }.padding(.top, 10)
+            .padding([.leading, .trailing], 10)
         }.navigationBarTitle("Charts")
     }
     

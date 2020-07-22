@@ -24,12 +24,6 @@ kotlin {
     *  To find out how to configure the targets, please follow the link:
     *  https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#setting-up-targets */
 
-    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-            ::iosArm64
-        else
-            ::iosX64
-
     jvm()
     js().browser {
         webpackTask {
@@ -37,15 +31,7 @@ kotlin {
         }
     }
 
-    mingwX64 {
-//        binaries {
-//            framework {
-//                baseName = "CovidTrackingWin"
-//            }
-//        }
-    }
-
-    iOSTarget("ios") {
+    ios {
         binaries {
             framework {
                 baseName = "CovidTrackingShared"
@@ -53,10 +39,12 @@ kotlin {
         }
     }
 
+    mingwX64()
+
     macosX64 {
         binaries {
-            executable {
-                entryPoint = "dev.ajthom.covid.main"
+            framework {
+                baseName = "CovidTrackingShared"
             }
         }
     }
@@ -92,7 +80,7 @@ kotlin {
             }
         }
 
-        iOSTarget("ios") {
+        ios {
             compilations["main"].defaultSourceSet {
                 dependsOn(commonMain)
                 dependencies {
@@ -104,7 +92,6 @@ kotlin {
         js().compilations["main"].defaultSourceSet {
             dependsOn(commonMain)
             dependencies {
-//                implementation(kotlin("js"))
                 implementation("com.soywiz.korlibs.klock:klock-js:$klockVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
             }
@@ -119,12 +106,35 @@ kotlin {
     }
 }
 
-val packForXcode by tasks.creating(Sync::class) {
-    val targetDir = File(buildDir, "xcode-frameworks")
+val packFatForXcode by tasks.creating(org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
+    baseName = "CovidTrackingShared"
+    destinationDir = File(buildDir, "xcode-frameworks")
+
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val armFramework = kotlin.targets.getByName<KotlinNativeTarget>("iosArm64").binaries.getFramework(mode)
+    val simFramework = kotlin.targets.getByName<KotlinNativeTarget>("iosX64").binaries.getFramework(mode)
+
+    inputs.property("mode", mode)
+    dependsOn(armFramework.linkTask, simFramework.linkTask)
+
+    from(armFramework, simFramework)
+
+    doLast {
+        val gradlew = File(destinationDir, "gradlew")
+        gradlew.writeText("#!/bin/bash\n"
+                + "export 'JAVA_HOME=${System.getProperty("java.home")}'\n"
+                + "cd '${rootProject.rootDir}'\n"
+                + "./gradlew \$@\n")
+        gradlew.setExecutable(true)
+    }
+}
+
+val packMacForXcode by tasks.creating(Sync::class) {
+    val targetDir = File(buildDir, "xcode-frameworks-mac")
 
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     println(mode)
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>("ios").binaries.getFramework(mode)
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>("macosX64").binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
 
@@ -141,4 +151,5 @@ val packForXcode by tasks.creating(Sync::class) {
     }
 }
 
-tasks.getByName("build").dependsOn(packForXcode)
+tasks.getByName("build").dependsOn(packFatForXcode)
+tasks.getByName("build").dependsOn(packMacForXcode)

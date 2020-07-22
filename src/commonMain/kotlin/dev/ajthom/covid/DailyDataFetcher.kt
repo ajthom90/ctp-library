@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonConfiguration
 class DailyDataFetcher {
     fun getDailyData(callback: (List<StateData>) -> Unit) {
         loadFromUrl("https://covidtracking.com/api/v1/states/daily.json") { dataStr ->
-            val stateInfo = StateNames()
+            val stateInfo = StateInfos()
             val json = Json(
                 JsonConfiguration.Stable.copy(
                     ignoreUnknownKeys = true,
@@ -16,28 +16,13 @@ class DailyDataFetcher {
                 )
             )
             val parsed = json.parse(StateDailyData.serializer().list, dataStr).sortedByDescending { it.date }
-                .groupBy { it.state }
+                .groupBy { it.getState().orEmpty() }
             val states = parsed.keys.map {
                 StateData(state = it, dailyData = emptyList())
             }
             val statesWithDailies = states.map {
                 val dailies = parsed[it.state] ?: emptyList()
-                dailies.withIndex().forEach { (index, data) ->
-                    val nextDay = if (index != 0) {
-                        dailies[index - 1]
-                    } else {
-                        null
-                    }
-                    val previousDay = if (index != dailies.size - 1) {
-                        dailies[index + 1]
-                    } else {
-                        null
-                    }
-                    data.apply {
-                        this.previousDay = previousDay
-                        this.nextDay = nextDay
-                    }
-                }
+                dailies.doNextAndPrevious()
                 val copy = it.copy(dailyData = dailies.doFreeze())
                 copy.doFreeze()
             }.sortedBy {
@@ -47,11 +32,32 @@ class DailyDataFetcher {
         }
     }
 
-    fun getNationalDailyData(callback: (List<StateDailyData>) -> Unit) {
+    private fun List<StateDailyData>.doNextAndPrevious(): List<StateDailyData> {
+        withIndex().forEach { (index, data) ->
+            val nextDay = if (index != 0) {
+                this[index - 1]
+            } else {
+                null
+            }
+            val previousDay = if (index != this.size - 1) {
+                this[index + 1]
+            } else {
+                null
+            }
+            data.also {
+                it.previousDay = previousDay
+                it.nextDay = nextDay
+            }
+        }
+        return this
+    }
+
+    fun getNationalDailyData(callback: (StateData) -> Unit) {
         loadFromUrl("https://covidtracking.com/api/v1/us/daily.json") { dataStr ->
             val json = Json(JsonConfiguration.Stable.copy(ignoreUnknownKeys = true, useArrayPolymorphism = true, isLenient = true))
             val parsed = json.parse(StateDailyData.serializer().list, dataStr).sortedByDescending { it.date }
-            callback(parsed)
+            val stateData = StateData(state = "US", dailyData = parsed.doNextAndPrevious().doFreeze())
+            callback(stateData.doFreeze())
         }
     }
 }

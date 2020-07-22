@@ -17,7 +17,7 @@ actual fun <T> T.doFreeze(): T {
 }
 
 actual fun loadFromUrl(url: String, callback: (String) -> Unit) {
-    val (_, _, result) = "https://covidtracking.com/api/v1/states/daily.json".httpGet().responseString()
+    val (_, _, result) = url.httpGet().responseString()
     when (result) {
         is Result.Success -> {
             callback(result.value)

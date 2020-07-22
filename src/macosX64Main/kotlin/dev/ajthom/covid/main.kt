@@ -6,7 +6,7 @@ fun main() {
     fetcher.getDailyData { states ->
         states.forEach { state ->
             state.dailyData.forEach { daily ->
-                println("${stateNames.getName(state.state)}: ${daily.positive ?: 0}")
+                println("${stateNames.getName(state.state)}: ${daily.getPositive()}")
             }
         }
     }

@@ -11,23 +11,32 @@ import CovidTrackingShared
 struct StateDataView: View {
     var state: StateData
     var stateNames: StateNames
+    @State var selectedDaily: StateDailyData? = nil
     
     var body: some View {
-        List {
+        List(selection: $selectedDaily) {
+            #if os(iOS)
             NavigationLink(destination: StateChartsView(state: state)) {
                 Text("Charts")
             }
+            #endif
             ForEach(state.dailyData, id: \.date) { daily in
-                NavigationLink(destination: StateDailyDataView(state: state, daily: daily)) {
+                NavigationLink(destination: StateDailyDataView(state: state, daily: daily, selectedDaily: $selectedDaily)) {
                     HStack {
                         Text("\(daily.formattedDate())")
                         Spacer()
-                        Text("\(daily.positive ?? 0) (\(daily.positiveIncreaseString()))")
+                        if daily.positiveIncrease >= 0 {
+                            Text("\(daily.getPositive()) (+\(daily.positiveIncrease))")
+                        } else {
+                            Text("\(daily.getPositive()) (\(daily.positiveIncrease))")
+                        }
                     }
                 }
             }
-        }.navigationBarTitle(stateNames.getName(abbreviation: state.state))
-        .navigationTitle(stateNames.getName(abbreviation: state.state))
+        }.onAppear {
+            self.selectedDaily = state.dailyData[0]
+        }.navBarTitle(stateNames.getName(abbreviation: state.state))
+        .navTitle(stateNames.getName(abbreviation: state.state))
     }
 }
 
@@ -45,3 +54,4 @@ extension StateDailyData {
         return "\(positiveIncrease)"
     }
 }
+

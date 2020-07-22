@@ -16,22 +16,30 @@ struct SearchBar: View {
         HStack {
             TextField("Search...", text: $text).padding(7)
                 .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
+                .background(searchBarBackgroundColor())
                 .cornerRadius(8)
                 .overlay(
                     HStack {
+                        #if os(macOS)
+                        EmptyView()
+                        #else
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
-                        
+                        #endif
+                                                
                         if isEditing {
                             Button(action: {
                                 self.text = ""
                             }) {
+                                #if os(macOS)
+                                Text("x").bold()
+                                #else
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
                                     .padding(.trailing, 8)
+                                #endif
                             }
                         }
                     }
@@ -46,7 +54,11 @@ struct SearchBar: View {
             if isEditing {
                 Button(action: {
                     self.isEditing = false
+                    #if os(macOS)
+                    NSApplication.shared.sendAction(#selector(NSResponder.resignFirstResponder), to: nil, from: nil)
+                    #else
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    #endif
                 }) {
                     Text("Cancel")
                 }.padding(.trailing, 10)
@@ -54,6 +66,14 @@ struct SearchBar: View {
                 .animation(.default)
             }
         }
+    }
+    
+    func searchBarBackgroundColor() -> Color {
+        #if os(macOS)
+        return Color(NSColor.systemGray)
+        #else
+        return Color(UIColor.systemGray6)
+        #endif
     }
 }
 
